@@ -1,0 +1,61 @@
+
+<html>
+<head>
+<title>Form Validation</title>
+<script>
+function validateForm() {
+
+  var name = document.getElementById("name").value;
+  var email = document.getElementById("email").value;
+  var mobile = document.getElementById("mobile").value;
+
+  if (name == "") {
+    alert("Please enter your name");
+    return false;
+  }
+  if (!/^[A-Za-z ]+$/.test(name)) {
+    alert("Name should contain only letters");
+    return false;
+  }
+
+  if (email == "") {
+    alert("Please enter your email");
+    return false;
+  }
+  if (!/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)) {
+    alert("Please enter a valid email address");
+    return false;
+  }
+
+  if (mobile == "") {
+    alert("Please enter your mobile number");
+    return false;
+  }
+  if (!/^[6-9][0-9]{9}$/.test(mobile)) {
+    alert("Please enter a valid 10-digit mobile number");
+    return false;
+  }
+
+  alert("Form submitted successfully!");
+  return true;
+}
+</script>
+</head>
+<body>
+
+<h2>Registration Form</h2>
+
+<form onsubmit="return validateForm()">
+
+  Name: <input type="text" id="name" placeholder="Enter your name"><br><br>
+
+  Email: <input type="text" id="email" placeholder="Enter your email"><br><br>
+
+  Mobile No: <input type="text" id="mobile" placeholder="Enter 10-digit mobile no"><br><br>
+
+  <input type="submit" value="Submit">
+
+</form>
+
+</body>
+</html>
